@@ -82,7 +82,7 @@ const morseToEnglish = string => {
 
 displayMorseTranslation = () => {
   document.getElementById("morse-output").innerHTML = englishToMorse(
-    englishInput.value
+    englishInput.value.toLowerCase()
   );
 };
 
