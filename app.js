@@ -55,6 +55,18 @@ function getKeyByValue(object, value) {
   return Object.keys(object).find(key => object[key] === value);
 }
 
+const englishToMorse = string => {
+  let returnString = "";
+  for (let index = 0; index < string.length; index++) {
+    if (morseBoard[string[index]] === undefined) {
+      return "Invalid string entered";
+    }
+    returnString += morseBoard[string[index]] + " ";
+  }
+
+  return returnString.substring(0, returnString.length - 1);
+};
+
 const morseToEnglish = string => {
   let returnString = "";
   const morseArray = string.split(" ");
@@ -73,17 +85,16 @@ const morseToEnglish = string => {
   return returnString;
 };
 
-const englishToMorse = string => {
-  let returnString = "";
-  for (let index = 0; index < string.length; index++) {
-    // console.log(morseBoard[string[index]]);
-    if (morseBoard[string[index]] === undefined) {
-      return "Invalid string entered";
-    }
-    returnString += morseBoard[string[index]] + " ";
-  }
+displayMorseTranslation = () => {
+  document.getElementById("morse-output").innerHTML = englishToMorse(
+    englishInput.value
+  );
+};
 
-  return returnString.substring(0, returnString.length - 1);
+displayEnglishTranslation = () => {
+  document.getElementById("english-output").innerHTML = morseToEnglish(
+    morseInput.value
+  );
 };
 
 const englishInput = document.getElementById("english-input");
@@ -93,6 +104,8 @@ const morseInput = document.getElementById("morse-input");
 morseToEnglish("hello");
 
 module.exports = { morseToEnglish, englishToMorse };
+
+//.... . .-.. .-.. ---   - .... . .-. .
 
 //···
 //---

@@ -9,20 +9,31 @@
     <title>Morse Code Converter</title>
   </head>
   <body>
-    <h1>Hello There</h1>
-    <section>
-      <input id="english-input" placeholder="Enter English..." />
-      <p id="english-output"></p>
-      <button>Convert to Morse Code!</button>
-    </section>
-    <section>
-      <input id="morse-input" placeholder="Enter Morse Code..." />
-      <p id="morse-output"></p>
-      <button>Convert to English!</button>
-    </section>
-    <section>
-      <p></p>
-    </section>
+    <h1>The Hoarse Morse Course Converter</h1>
+    <main>
+      <section>
+        <input
+          oninput="displayMorseTranslation()"
+          id="english-input"
+          placeholder="Enter English..."
+        />
+        <p id="morse-output"></p>
+        <button onclick="displayMorseTranslation()">
+          Convert to Morse Code!
+        </button>
+      </section>
+      <section>
+        <input
+          oninput="displayEnglishTranslation()"
+          id="morse-input"
+          placeholder="Enter Morse Code..."
+        />
+        <p id="english-output"></p>
+        <button onclick="displayEnglishTranslation()">
+          Convert to English!
+        </button>
+      </section>
+    </main>
     <script src="app.js"></script>
   </body>
 </html>
