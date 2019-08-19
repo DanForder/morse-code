@@ -47,10 +47,6 @@ const morseBoard = {
   " ": " "
 };
 
-// const $ = require("jquery");
-
-// console.log(morseBoard);
-
 function getKeyByValue(object, value) {
   return Object.keys(object).find(key => object[key] === value);
 }
@@ -61,10 +57,9 @@ const englishToMorse = string => {
     if (morseBoard[string[index]] === undefined) {
       return "Invalid string entered";
     }
-    returnString += morseBoard[string[index]] + " ";
+    returnString += morseBoard[string[index]] + "&nbsp";
   }
-
-  return returnString.substring(0, returnString.length - 1);
+  return returnString.substring(0, returnString.length - 5);
 };
 
 const morseToEnglish = string => {
@@ -104,8 +99,3 @@ const morseInput = document.getElementById("morse-input");
 morseToEnglish("hello");
 
 module.exports = { morseToEnglish, englishToMorse };
-
-//.... . .-.. .-.. ---   - .... . .-. .
-
-//···
-//---
